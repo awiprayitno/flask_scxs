@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat App v1</title>
+</head>
+<body>
+    {% for chat in chats %}
+      {{ chat.username }} {{ chat.message}}<br>
+    {% endfor %}
+</body>
+</html>

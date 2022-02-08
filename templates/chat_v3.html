@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat App v3</title>
+</head>
+<body>
+  <form method="POST">
+    <label for="username">Username</label><br>
+    <input type="text" id="username" name="username" value=""><br>
+    <label for="message">Message</label><br>
+    <input type="text" id="message" name="message" value=""><br><br>
+    <input type="submit" value="Submit">
+  </form>
+  {% for chat in chats %}
+    {{ chat.user.username }}: {{ chat.message }}<br>
+  {% endfor %}
+</body>
+</html>

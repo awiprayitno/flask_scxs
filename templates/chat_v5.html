@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat App v3</title>
+</head>
+<body>
+  {% if not current_user.is_authenticated %}
+    Please sign in: <br>
+    <form action="/login" method="POST" >
+      <label for="username">Username</label><br>
+      <input type="text" id="username" name="username" value=""><br>
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="password" value=""><br><br>
+      <input type="submit" value="Log In">
+    </form>
+  {% else %}
+  Welcome, {{ current_user.username }} <a href="{{url_for('logout')}}">Log out</a><br>
+  <form method="POST">
+    <label for="message">Message</label><br>
+    <input type="text" id="message" name="message" value=""><br><br>
+    <input type="submit" value="Submit">
+  </form>
+  {% endif %}
+  
+  {% for chat in chats %}
+    {{ chat.user.username }}: {{ chat.message }}<br>
+  {% endfor %}
+</body>
+</html>
